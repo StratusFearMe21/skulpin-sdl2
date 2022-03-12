@@ -1,8 +1,5 @@
 [workspace]
-members = [
-    "skulpin-renderer",
-    "skulpin-app-winit",
-]
+members = ["skulpin-renderer", "skulpin-app-winit"]
 
 [package]
 name = "skulpin"
@@ -17,14 +14,14 @@ homepage = "https://github.com/aclysma/skulpin"
 keywords = ["skia", "vulkan", "ash", "2d", "graphics"]
 categories = ["graphics", "gui", "multimedia", "rendering", "visualization"]
 include = [
-    "**/*.rs",
-    "Cargo.toml",
-    "shaders/*.frag",
-    "shaders/*.vert",
-    "shaders/*.spv",
-    "LICENSE-APACHE",
-    "LICENSE-MIT",
-    "README.md"
+  "**/*.rs",
+  "Cargo.toml",
+  "shaders/*.frag",
+  "shaders/*.vert",
+  "shaders/*.spv",
+  "LICENSE-APACHE",
+  "LICENSE-MIT",
+  "README.md",
 ]
 
 # Minimum required rust version:
@@ -55,7 +52,7 @@ default = []
 skulpin-renderer = { version = "0.14.1", path = "skulpin-renderer" }
 skulpin-app-winit = { version = "0.14.1", path = "skulpin-app-winit", optional = true }
 
-log="0.4"
+log = "0.4"
 
 [dev-dependencies]
 env_logger = "0.6"
@@ -63,10 +60,6 @@ env_logger = "0.6"
 # These are used for the physics demo only
 rapier2d = "0.5"
 
-# The skulpin-renderer-sdl2 crate doesn't specify any features, but downstream libraries can do so by including sdl2
-# for themselves. Examples will use the features added here
-sdl2-sys = { version = ">=0.33, <=0.34.2"}
-sdl2 = { version = ">=0.33,<0.34.3", features = ["bundled", "static-link", "raw-window-handle"] }
 
 [[example]]
 name = "hello_skulpin_sdl2"
@@ -91,4 +84,3 @@ required-features = ["winit-app", "winit-25"]
 [[example]]
 name = "physics"
 required-features = ["winit-app", "winit-25"]
-

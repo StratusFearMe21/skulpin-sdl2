@@ -4,7 +4,7 @@ use rafx::framework::*;
 
 use super::CoordinateSystemHelper;
 use super::CoordinateSystem;
-use rafx::api::raw_window_handle::HasRawWindowHandle;
+use rafx::api::sdl2;
 use std::sync::Arc;
 use crate::VkSkiaContext;
 use crate::skia_support::VkSkiaSurface;
@@ -47,7 +47,7 @@ impl RendererBuilder {
     /// Builds the renderer. The window that's passed in will be used for creating the swapchain
     pub fn build(
         self,
-        window: &dyn HasRawWindowHandle,
+        window: &sdl2::video::Window,
         window_size: RafxExtents2D,
     ) -> RafxResult<Renderer> {
         Renderer::new(
@@ -111,7 +111,7 @@ pub struct Renderer {
 impl Renderer {
     /// Create the renderer
     pub fn new(
-        window: &dyn HasRawWindowHandle,
+        window: &sdl2::video::Window,
         window_size: RafxExtents2D,
         coordinate_system: CoordinateSystem,
         vsync_enabled: bool,
